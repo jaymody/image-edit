@@ -13,20 +13,20 @@ This repo contains several image editing functions (written in c++) for OpenCV B
 
 **found under src/Img_edit**
 
-## Grayscale
-![Brightness GIF](/img/grayscale.gif)
+<!-- ## Grayscale -->
+<!-- ![Gray GIF](/img/grayscale.gif) -->
 
 ## Brightness
-![Brightness GIF](/img/brightness.gif)
+![Brightness GIF](/brightness_opt.gif)
 
-## Contrast
-![Brightness GIF](/img/contrast.gif)
+<!-- ## Contrast -->
+<!-- ![Contrast GIF](/img/contrast.gif) -->
 
-## Saturation
-![Brightness GIF](/img/saturation.gif)
+<!-- ## Saturation -->
+<!-- ![Saturation GIF](/img/saturation.gif) -->
 
-## Hue
-![Brightness GIF](/img/hue.gif)
+<!-- ## Hue -->
+<!-- ![Brightness GIF](/img/hue.gif) -->
 
-## Sharpness
-![Brightness GIF](/img/sharpness.gif)
+<!-- ## Sharpness -->
+<!-- ![Brightness GIF](/img/sharpness.gif) -->
