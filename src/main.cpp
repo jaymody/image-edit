@@ -10,7 +10,7 @@
 int main()
 {
     // initializes paths to images and mat objects for images
-    std::vector<std::string> paths = {"data/1.png"};
+    std::vector<std::string> paths = {"test_image.png"};
     std::vector<cv::Mat> images = {};
     
     // Reads images and converts them into CV Mat objects
@@ -33,8 +33,20 @@ int main()
 
         
         /// /// /// Operations /// /// ///
+        // BRIGHTNESS
+        for (int j = -255; j <= 255; j+=2)
+        {
+            cv::Mat bright_image = brightness(images[i], j);
+            cv::namedWindow("brightness" + std::to_string(j), cv::WINDOW_AUTOSIZE);
+            cv::imshow("brightness" + std::to_string(j), bright_image);
+            cv::waitKey(1);
+            cv::destroyWindow("brightness" + std::to_string(j));
+
+        }
+        cv::waitKey(0);
+
         // CONTRAST
-        for (double j = -255; j < 255; j += 1)
+        for (double j = -255; j <= 255; j += 2)
         {
             cv::Mat contrast_image = contrast(images[i], j);
             cv::namedWindow("contrast" + std::to_string(j), cv::WINDOW_AUTOSIZE);
@@ -44,19 +56,8 @@ int main()
         }
         cv::waitKey(0);
 
-        // BRIGHTNESS
-        for (int j = -255; j <= 255; j++)
-        {
-            cv::Mat bright_image = brightness(images[i], j);
-            cv::namedWindow("brightness" + std::to_string(j), cv::WINDOW_AUTOSIZE);
-            cv::imshow("brightness" + std::to_string(j), bright_image);
-            cv::waitKey(1);
-            cv::destroyWindow("brightness" + std::to_string(j));
-        }
-        cv::waitKey(0);
-
         // Saturation
-        for (int j = -255; j <= 255; j++)
+        for (int j = -255; j <= 255; j+=2)
         {
             cv::Mat saturation_image = saturation(images[i], j);
             cv::namedWindow("saturation" + std::to_string(j), cv::WINDOW_AUTOSIZE);
@@ -65,9 +66,9 @@ int main()
             cv::destroyWindow("saturation" + std::to_string(j));
         }
         cv::waitKey(0);
-        
+
         // HUE
-        for (int j = -180; j <= 180; j++)
+        for (int j = 0; j <= 180; j++)
         {
             cv::Mat hue_image = hue(images[i], j);
             namedWindow("hue" + std::to_string(j), cv::WINDOW_AUTOSIZE);
@@ -76,7 +77,7 @@ int main()
             cv::destroyWindow("hue" + std::to_string(j));
         }
         cv::waitKey(0);
-        
+
         // Gamma
         for (double j = -100.0; j < 100.0; j += 1)
         {
@@ -87,9 +88,9 @@ int main()
             cv::destroyWindow("gamma" + std::to_string(j));
         }
         cv::waitKey(0);
-        
+
         // Sharpen
-        for (double j = 0.0; j < 100; j += 0.1)
+        for (double j = 0.0; j < 100; j += 0.5)
         {
             cv::Mat sharp_image = sharpness(images[i], j);
             cv::namedWindow("sharp" + std::to_string(j), cv::WINDOW_AUTOSIZE);
