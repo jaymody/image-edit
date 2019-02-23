@@ -46,7 +46,8 @@ cv::Mat brightness(cv::Mat matrix, int beta)
  */
 cv::Mat contrast(cv::Mat matrix, double beta)
 {
-    cv::Mat processed_mat = matrix.clone(); // initializes output matrix
+    cv::Mat processed_mat; // output matrix
+    matrix.convertTo(processed_mat, CV_32S); // converts the matrix to type CV_32S to allow aritmetic
     
     // Handles beta to be within the desired range (255 is equal to bgr_max, but this is only a coincidence)
     if (beta < -255)
@@ -55,27 +56,18 @@ cv::Mat contrast(cv::Mat matrix, double beta)
         beta = 255;
     
     int kappa = 259; // contrast parameter, the higher it is, the lower the effect of contrast
-    double contrast_factor = (kappa * (beta + bgr_max)) / (bgr_max * (kappa - beta));
+    double contrast_factor = (kappa * (beta + bgr_max)) / (bgr_max * (kappa - beta)); // calculates contrast factor
     
-    for (int y = 0; y < processed_mat.rows; y++) // iterate columns
-    {
-        for (int x = 0; x < processed_mat.cols; x++) // iterate rows
-        {
-            for (int c = 0; c < processed_mat.channels(); c++)
-            {
-                short current_pixel = processed_mat.at<cv::Vec3b>(y,x)[c]; // get current value at pixel (y, x) channel c
-                short new_pixel = (int)(contrast_factor * (current_pixel - bgr_half) + bgr_half); // new pixel value adjusted for contrast
-                
-                // Contains the new pixel value within max and min bgr values
-                if (new_pixel > bgr_max)
-                    new_pixel = bgr_max;
-                else if (new_pixel < 0)
-                    new_pixel = 0;
-                processed_mat.at<cv::Vec3b>(y,x)[c] = new_pixel; // changes the value of the matrix with the new pixel
-            }
-        }
-    }
+    // contrast is calculated using the equation:
+    // new_pixel = contrast_factor * (old_pixel - 128) + 128
+    cv::Scalar scale(bgr_half, bgr_half, bgr_half); // contains cv scalar depth 3 with values of 128
     
+    processed_mat -= scale; // old_pixel - 128
+    processed_mat *= contrast_factor; // contrast * p
+    processed_mat += scale; // p + 128
+    
+    processed_mat.convertTo(processed_mat, CV_8U); // converts matrix back to original format
+
     return processed_mat;
 }
 
@@ -197,4 +189,3 @@ cv::Mat sharpness(cv::Mat matrix, double beta)
     
     return processed_mat;
 }
-
