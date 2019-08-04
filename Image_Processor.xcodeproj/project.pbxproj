@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C909B40D2289CCA10045D248 /* OpenCVWithWebcam.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C909B40C2289CCA10045D248 /* OpenCVWithWebcam.cpp */; };
 		C92C08EC22076D370081A89F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C92C08EB22076D370081A89F /* main.cpp */; };
 		C946CE2C221379EF00A8080A /* ImgEdit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C946CE2A221379EF00A8080A /* ImgEdit.cpp */; };
+		C9DAAA6022860EFC00730231 /* OpenCVProcessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C9DAAA5E22860EFC00730231 /* OpenCVProcessing.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,11 +26,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C909B40C2289CCA10045D248 /* OpenCVWithWebcam.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCVWithWebcam.cpp; sourceTree = "<group>"; };
 		C92C08E822076D370081A89F /* Image_Processor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Image_Processor; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92C08EB22076D370081A89F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C946CE292213796A00A8080A /* main.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = main.hpp; sourceTree = "<group>"; };
 		C946CE2A221379EF00A8080A /* ImgEdit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ImgEdit.cpp; sourceTree = "<group>"; };
 		C946CE2B221379EF00A8080A /* ImgEdit.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ImgEdit.hpp; sourceTree = "<group>"; };
+		C9DAAA5E22860EFC00730231 /* OpenCVProcessing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OpenCVProcessing.cpp; sourceTree = "<group>"; };
+		C9DAAA5F22860EFC00730231 /* OpenCVProcessing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenCVProcessing.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +71,9 @@
 				C92C08EB22076D370081A89F /* main.cpp */,
 				C946CE2B221379EF00A8080A /* ImgEdit.hpp */,
 				C946CE2A221379EF00A8080A /* ImgEdit.cpp */,
+				C909B40C2289CCA10045D248 /* OpenCVWithWebcam.cpp */,
+				C9DAAA5E22860EFC00730231 /* OpenCVProcessing.cpp */,
+				C9DAAA5F22860EFC00730231 /* OpenCVProcessing.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -133,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9DAAA6022860EFC00730231 /* OpenCVProcessing.cpp in Sources */,
 				C92C08EC22076D370081A89F /* main.cpp in Sources */,
 				C946CE2C221379EF00A8080A /* ImgEdit.cpp in Sources */,
+				C909B40D2289CCA10045D248 /* OpenCVWithWebcam.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +202,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "<key>NSCameraUsageDescription</key>\n<string>Camera usage description</string>";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -245,6 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "<key>NSCameraUsageDescription</key>\n<string>Camera usage description</string>";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
